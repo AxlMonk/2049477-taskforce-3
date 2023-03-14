@@ -1,7 +1,7 @@
 # Личный проект «TaskForce»
 
 * Студент: [Александр Кунгуров](https://up.htmlacademy.ru/nodejs-2/3/user/2049477).
-* Наставник: `Неизвестно`.
+* Наставник: [Роман Решетников](https://htmlacademy.ru/profile/id1919895).
 
 ---
 
