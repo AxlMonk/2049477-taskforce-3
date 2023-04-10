@@ -15,7 +15,7 @@ export class TaskUserEntity implements User {
   personalInformation: string;
   role: UserRoleEnum;
 
-  constructor(taskUser: User) {
+  constructor(taskUser: { firstname: string; role: UserRoleEnum; avatar: string; dateBirth: Date; email: string; passwordHash: string; lastname: string }) {
     this.fillEntity(taskUser);
   }
 
@@ -43,7 +43,9 @@ export class TaskUserEntity implements User {
     this.passwordHash = await hash(password, salt);
     return this;
   }
-  public async comparePassword(password: string): Promise<boolean> {
+
+  public async comparePassword(password: string):
+    Promise<boolean> {
     return compare(password, this.passwordHash);
   }
 }
