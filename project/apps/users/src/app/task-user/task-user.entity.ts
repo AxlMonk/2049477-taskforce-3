@@ -15,7 +15,11 @@ export class TaskUserEntity implements User {
   personalInformation: string;
   role: UserRoleEnum;
 
-  constructor(taskUser: { firstname: string; role: UserRoleEnum; avatar: string; dateBirth: Date; email: string; passwordHash: string; lastname: string }) {
+  constructor(taskUser: {
+      firstname: string; role: UserRoleEnum; avatar: string; dateBirth: Date; email: string;
+      passwordHash: string; lastname: string
+    })
+  {
     this.fillEntity(taskUser);
   }
 
@@ -23,7 +27,11 @@ export class TaskUserEntity implements User {
     return {...this};
   }
 
-  public fillEntity(taskUser: { firstname: string; role: UserRoleEnum; avatar: string; dateBirth: Date; email: string; passwordHash: string; lastname: string }) {
+  public fillEntity(taskUser: {
+      firstname: string; role: UserRoleEnum; avatar: string; dateBirth: Date;
+      email: string; passwordHash: string; lastname: string
+    })
+  {
     // this._id = taskUser._id;
     this.email = taskUser.email;
     // this.city = taskUser.city;
