@@ -1,4 +1,4 @@
-import { Injectable, ConflictException, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import { ConflictException, Inject, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { TaskUserMemoryRepository } from '../task-user/task-user-memory.repository';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserRoleEnum } from '@project/shared/app-types';
@@ -6,12 +6,20 @@ import dayjs from 'dayjs';
 import { TaskUserEntity } from '../task-user/task-user.entity';
 import { AUTH_USER_EXISTS, AUTH_USER_NOT_FOUND, AUTH_USER_PASSWORD_WRONG } from './authentication.constant';
 import { LoginUserDto } from './dto/login-user.dto';
+import { ConfigType } from '@nestjs/config';
+import { dbConfig } from '@project/config/config-users';
 
 @Injectable()
 export class AuthenticationService {
   constructor(
-    private readonly taskUserRepository: TaskUserMemoryRepository
-  ) {}
+    private readonly taskUserRepository: TaskUserMemoryRepository,
+
+    @Inject(dbConfig.KEY)
+    private readonly databaseConfig: ConfigType<typeof dbConfig>,
+  ) {
+    console.log(databaseConfig.host);
+    console.log(databaseConfig.user);
+  }
 
   public async register(dto: CreateUserDto) {
     const {email, firstname, lastname, password, dateBirth, city} = dto;
