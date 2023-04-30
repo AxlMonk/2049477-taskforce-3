@@ -3,6 +3,8 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { TaskUserModule } from './task-user/task-user.module';
 import { CommentUserModule } from './comment-user/comment-user.module';
 import { ReviewUserModule } from './review-user/review-user.module';
+import { ConfigUsersModule, getMongooseOptions } from '@project/config/config-users';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
@@ -10,7 +12,10 @@ import { ReviewUserModule } from './review-user/review-user.module';
     TaskUserModule,
     CommentUserModule,
     ReviewUserModule,
-  ],
+    ConfigUsersModule,
+    MongooseModule.forRootAsync(
+      getMongooseOptions()
+    )],
   controllers: [],
   providers: [],
 })
