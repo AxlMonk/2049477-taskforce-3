@@ -19,8 +19,6 @@ export class AuthenticationService {
   ) {
     console.log(databaseConfig.host);
     console.log(databaseConfig.user);
-    console.log(666);
-
   }
 
   public async register(dto: CreateUserDto) {
