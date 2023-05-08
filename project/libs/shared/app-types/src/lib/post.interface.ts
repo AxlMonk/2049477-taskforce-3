@@ -1,8 +1,7 @@
-import { TaskStatusEnum } from "./task-status.enum";
-import { Category } from './category.interface';
-import { Comment } from './comment.interface';
+import {Category, Comment, TaskStatusEnum} from "@project/shared/app-types";
 
-export interface Task {
+export interface Post {
+  userId: string;
   id?: number;
   title: string;
   description: string;
@@ -18,5 +17,3 @@ export interface Task {
   createdAt?: Date;
   publishAt?: Date;
 }
-
-
