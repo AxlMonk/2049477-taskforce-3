@@ -1,4 +1,8 @@
 export interface Comment {
-  _taskId?: string;
-  text: string;
+  id?: number;
+  createdAt: Date;
+  updatedAt: Date;
+  taskId?: number;
+  message: string;
+  userId: string;
 }
